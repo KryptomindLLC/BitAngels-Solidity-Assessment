@@ -1,42 +1,31 @@
-# Tech interview smart contracts coding problem
+# Smart Contract Coding Task – ERC20 Token with ETH Dividends
 
-This is a Solidity coding problem for tech interviews. It is designed to take **no more than a few hours**.
+This repository contains the solution for the Solidity coding challenge.
 
-## Getting setup
+The contract implements a mintable ERC-20 token backed by ETH deposits, similar to Wrapped ETH. Users can mint tokens by depositing ETH and burn tokens to redeem the equivalent ETH amount.
 
-Ensure you have installed:
+In addition, the contract supports ETH dividend distribution to token holders proportional to their token balance relative to the total supply. Dividends are assigned to holder addresses and remain claimable even if tokens are later transferred or burned.
 
-- [Node.js](https://nodejs.org/) **v20+**
-- [Hardhat](https://hardhat.org/) (already included as a dev dependency)
+The implementation also maintains an internal list of token holders to enable efficient dividend assignment.
 
-## Instructions
+## Setup
 
-### 1. Setup
+Install dependencies:
 
-Clone the repo locally and install the NPM dependencies using npm:
+```bash
+npm install
+```
 
-### 2. Task
+Run tests:
 
-**You only need to write code in the `Token.sol` file. Please ensure all the unit tests pass to successfully complete this part.**
+```bash
+npm run test
+```
 
-The contracts consist of a mintable ERC-20 `Token` (which is similar to a _Wrapped ETH_ token). Callers mint tokens by depositing ETH. They can then burn their token balance to get the equivalent amount of deposited ETH back.
+All provided Hardhat tests pass successfully.
 
-In addition, token holders can receive dividend payments in ETH in proportion to their token balance relative to the total supply. Dividends are assigned by looping through the list of holders.
+## Loom Walkthrough
 
-Dividend payments are assigned to token holders' addresses. This means that even if a token holder were to send their tokens to somebody else later on or burn their tokens, they would still be entitled to the dividends they accrued whilst they were holding the tokens. 
+Loom video demonstrating the implementation and test execution:
 
-You will thus need to **efficiently** keep track of individual token holder addresses in order to assign dividend payouts to holders with minimal gas cost.
-
-For a clearer understanding of how the code is supposed to work please refer to the tests in the `test` folder.
-
-Your Solution must pass the test: `npm run test` - run the tests (Hardhat)
-
-![Test Result](./test-result.png)
-
-### 3: Submission
-
-Record a short [Loom video](https://www.loom.com) showing how it works, including the expected and actual behavior if you're testing.
-
-### 4. Deadline
-
-Please complete and submit the result within 1 ~ 2 hours unless otherwise discussed.
+Loom: https://www.loom.com/share/82165bf02c4244049281281e4595d4b2
